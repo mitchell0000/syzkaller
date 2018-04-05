@@ -167,7 +167,7 @@ void cover_open()
 		uint64* mmap_ptr = (uint64*)mmap(NULL, mmap_alloc_size,
 						 PROT_READ | PROT_WRITE,
 						 MAP_SHARED, th->cover_fd, 0);
-		if (mmap_ptr == NULL)
+		if (mmap_ptr == MAP_FAILED)
 			fail("cover mmap failed");
 		th->cover_size_ptr = mmap_ptr;
 		th->cover_data = &mmap_ptr[1];
